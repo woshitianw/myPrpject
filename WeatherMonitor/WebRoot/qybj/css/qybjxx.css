@@ -1,0 +1,217 @@
+.flow-chart
+{
+	top: 30px;
+	background-color: rgba(9,96,160,0.6);
+	width: 100%;
+	height: 430px;
+	left: 0;
+}
+
+.flow-chart span{
+	font-size: 18px;
+	color: #fff;
+	font-family: "黑体";
+	line-height: 30px;
+}
+
+.chart-legend{
+	height: 70px;
+	width: 170px;
+	top:30px;
+	left:70px
+}
+.chart-legend div{
+	vertical-align: middle;
+}
+.chart-legend span{
+	display: inline-block;
+	font-size: 14px;
+}
+
+.chart-legend>div>span:first-child{
+	width:85px;
+	border-bottom: 5px solid red;
+	margin-bottom:3px;
+}
+
+.table-container{
+	top:460px;
+	bottom: 10px;
+	width: 100%;
+/*	background-color: red;*/
+}
+#warnTable{
+	margin-top: 45px;
+}
+#warnDetailTable{
+	margin-top: 45px;
+}
+
+#warnInfoContent{
+	width: 370px;
+	height: 170px;
+	padding: 20px;
+	color: #3E3E3F;
+	font-family: "微软雅黑";
+	/*font-size: ;*/
+	background-color: rgba(255,255,255,0.8);
+	display: none;
+	position: fixed;
+}
+
+#warnInfoContent span{
+	width:75px;
+	text-align: left;
+	display: inline-block;
+}
+
+#warnInfoContent textarea {
+	width: 100%;
+	height:65px;
+}
+
+#warnInfoContent #closebtn {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	text-align: right;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+#warnInfoContent div {
+	text-align: right;
+}
+
+#warnInfoContent input[type='radio'] {
+	vertical-align: top;
+	margin-left: 10px;
+}
+
+#warnInfoContent #btnpost{
+	padding: 3px 8px;
+	border: none;
+	background: #EE4848;
+	color: #FFF;
+	border-radius: 3px;
+	font-family: "黑体";
+}
+#returnButton{
+	color: #fff;
+    background-color: #236ABC;
+    display: inline-block;
+    margin-top: 5px;
+    display: none;
+    cursor: pointer;
+    top:5px;
+    left:0px;
+    padding: 0.8rem 1.3rem 0.8rem 1.3rem;
+    border-radius: 0.5rem;
+    -moz-box-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 85, 194, 0.8);
+    -webkit-box-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 85, 194, 0.8);
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 85, 194, 0.8);
+}
+#receipt-panel{
+	width:590px;
+	height:290px;
+	background-color: rgba(255,255,255,0.9);
+	font-family: "黑体";
+}
+#receipt-content{
+	font-size: 2rem;
+	color: #2359CE;
+	display: inline-block;
+	line-height: 2rem;
+	padding: 0.5rem 2rem 0.5rem 2rem;
+}
+.receipt-count-div{
+width: 100%;
+}
+#receipt-panel table{
+	width:100%;
+	border-spacing: 0;
+	text-align: center;
+}
+#receipt-panel table>thead{
+	color: #fff;
+	font-size: 1.5rem;
+	background-color: #1CC6D5;
+}
+#receipt-panel table>thead>tr>th{
+	border-right:1px solid  #074E88;
+	text-align: center;
+	height: 3rem;
+}
+#receipt-panel table>thead>tr>th:last-child{
+	border-right:none;
+}
+#receipt-panel table>tbody>tr>td{
+	color: #111111;
+	font-size: 1.4rem;
+	height: 3rem;
+	border-right:1px solid  #074E88;
+	border-bottom: 1px solid  #074E88;
+}
+#receipt-panel table>tbody>tr>td:last-child{
+	border-right:none;
+}
+.receipt-count-div span{
+	padding-bottom: 0.5rem;
+	font-size: 1.5rem;
+	display: inline-block;
+	width: 32%;
+	text-align: center;
+}
+#receipt-ok-count{
+	color: #249224;
+	font-size: 1.5rem;
+}
+#receipt-wait-count{
+	color: #FFAE19;
+	font-size: 1.5rem;
+}
+#receipt-error-count{
+	color: #FF1313;
+	
+}
+.flow-charticon{
+	text-align: center;
+	display: none;
+	cursor: pointer;
+}
+#receipt-close{
+	display: block;
+	width: 25px;
+	height: 25px;
+	color: #111111;
+	top:5px;
+	right: -5px;
+	cursor: pointer;
+}
+.optionbar{
+	margin-right: 3rem;
+	max-width: 350px;
+	top:16px;
+	z-index: 2;
+}
+.optionbar span {
+	font-family: "黑体";
+    font-size: 1.5rem;
+    text-align: center;
+    color: #FFF;
+    z-index: 1;
+    cursor: pointer;
+    background-color: rgba(10, 115, 202, 0.8);
+    padding: 0.8rem 1.3rem 0.8rem 1.3rem;
+    border-radius: 0.5rem;
+    -moz-box-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 85, 194, 0.8);
+    -webkit-box-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 85, 194, 0.8);
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 85, 194, 0.8);
+    margin-left: 2rem;
+}
+.option-select {
+	background-color: #13B2AD !important;
+	-moz-box-shadow: 0.2rem 0.2rem 0.2rem rgba(0,164,122, 0.8) !important;
+    -webkit-box-shadow: 0.2rem 0.2rem 0.2rem rgba(0,164,122, 0.8) !important;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0,164,122, 0.8) !important;
+}

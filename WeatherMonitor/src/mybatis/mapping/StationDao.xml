@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geohey.db.dao.StationDao">
+
+    <select id="getAll" resultType="com.geohey.db.entry.Station">
+        SELECT admin_code_chn ,name,id,ST_AsText(geom) as wkt
+        FROM t_qx_station;
+    </select>
+
+    <select id="queryByBuffer" resultType="String" parameterType="com.geohey.db.dao.QueryParam">
+        select id from t_qx_station where ST_Contains(ST_Transform(ST_Buffer(ST_Transform(ST_GeomFromText('POINT(${x} ${y})',4326),3857),#{r}),4326),geom)
+    </select>
+    
+    <insert id="insert" parameterType="com.geohey.db.entry.Station">
+        insert into t_qx_station (admin_code_chn,name,id,geom) values(#{admin_code_chn},#{name},
+        #{id},
+        ST_GeomFromText(#{wkt},4326))
+    </insert>
+
+    <delete id="deleteAll">
+        delete  FROM  t_qx_station;
+    </delete>
+    
+    <select id="getQYZZIssue" resultType="int">
+        select issue  FROM  t_qx_issue where id =1;
+    </select>
+    
+    <update id="addQYZZIssue">
+    	update t_qx_issue set issue = (select issue  FROM  t_qx_issue where id =1)+1 where id =1;
+    </update>
+    
+    <update id="updateQYZZIssue" parameterType="int">
+    	update t_qx_issue set issue = #{param} where id =1;
+    </update>
+    
+    <insert id="insertIssueWordFile" parameterType="com.geohey.db.entry.IssueWordFile">
+    	insert into t_qx_issue_list (issue,createtime,issuetype,filename) values(#{issue},#{createtime},
+        #{issuetype},#{filename});
+    </insert>
+    
+    <select id="getAllWordFiles" resultType="com.geohey.db.entry.IssueWordFile">
+    	select * from t_qx_issue_list order by createtime desc ,issue desc;
+    </select>
+    
+    <select id="getWordFileByIssue" parameterType="int" resultType="com.geohey.db.entry.IssueWordFile">
+    	select * from t_qx_issue_list where issue=#{issue};
+    </select>
+
+</mapper>

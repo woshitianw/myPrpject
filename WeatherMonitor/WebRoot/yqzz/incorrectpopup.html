@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/libs/require.js" type="text/javascript"></script>
+    <script src="../js/env.js" type="text/javascript"></script>
+    <style>
+      .bottom-bar{
+        padding: 2rem 2rem;
+        float: right;
+      }
+      
+      .bottom-bar span {
+      font-family: "黑体";
+        font-size: 1.5rem;
+        text-align: center;
+        color: #FFF;
+        z-index: 1;
+        cursor: pointer;
+        background-color: rgba(10, 115, 202, 0.8);
+        padding: 0.8rem 1.3rem 0.8rem 1.3rem;
+        border-radius: 0.5rem;
+        margin-left: 2rem;
+    }
+    #returnButton{
+      background-color: rgb(10, 115, 202);
+    }
+    #returnButton:hover{
+      background-color: rgb(0,177,171);
+    }
+    #saveButton{
+      background-color: #DE9298;
+    }
+    #saveButton:hover{
+      background-color: #DE92bf;
+    }
+    .common-table>thead>tr>th{
+      width:120px;
+    }
+    .common-table>thead>tr>th:first{
+      width:300px;
+    }
+    </style>
+    <script>
+      require(["jquery",
+  'core/AppEvent',
+  'util/TimeObjectUtil',
+  'util/Util',
+  'js/ConfigData'
+], function(
+  $,
+  AppEvent,
+  TimeObjectUtil,
+  util,
+  config) {
+    var sid = util.getQueryString('sid');
+    var st = util.getQueryString('st');
+    var et = util.getQueryString('et');
+    $('#saveButton').click(onSave);
+    function onSave(){
+      AppEvent.dispatchAppEvent(AppEvent.INCORRECT_RAINVALUE,sid);
+      AppEvent.dispatchAppEvent(AppEvent.CLOSE_POPUPWINDOW);
+    }
+    
+    $('#returnButton').click(function(){
+      AppEvent.dispatchAppEvent(AppEvent.CLOSE_POPUPWINDOW);
+    });
+    
+    console.log(sid + " " + st + " " + et);
+    
+    $.ajax({
+      type: "get",
+      url: '../' + config.services.relateRain,
+      data: {
+        t:(new Date()).getTime(),
+        star_time:st,
+        end_time:et,
+        Station_Id_C:sid
+        },
+//    data: {
+//      t:(new Date()).getTime(),
+//      star_time:'2016-10-20 00:00:00',
+//      end_time:'2016-10-21 23:59:00',
+//      Station_Id_C:'54623'
+//      },
+      dataType:'json',
+      success: function(result) {
+        if(result.hour != null && result.content != null && $.isArray(result.content)){
+          var hour = parseInt(result.hour);
+          $('.common-table').empty();
+          var thead = $('<thead></thead>').appendTo($('.common-table'));
+          var tr = $('<tr></tr>').appendTo(thead);
+          $('<td>站点</td>').appendTo(tr);
+          $('<td>雨量（累计）</td>').appendTo(tr);
+          $('<td>'+(hour-2)+'时</td>').appendTo(tr);
+          $('<td>'+(hour-1)+'时</td>').appendTo(tr);
+          $('<td>'+hour+'时</td>').appendTo(tr);
+          $('<td>'+(hour+1)+'时</td>').appendTo(tr);
+          $('<td>'+(hour+2)+'时</td>').appendTo(tr);
+          
+          var tbody = $('<tbody></tbody>').appendTo($('.common-table'));
+          
+          function appendToTr(tr,value){
+            if(parseFloat(value)<0 || parseFloat(value)>999){
+              $('<td>--mm</td>').appendTo(tr);
+            }else{
+              $('<td>' +value+'mm</td>').appendTo(tr);
+            }
+          }
+          
+          for(var i=0;i<result.content.length;i++){
+            tr=$('<tr></tr>').appendTo(tbody);
+            var item = result.content[i];
+            $('<td>' +item.Station_Name + '（'+ item.Station_Id_C +'）</td>').appendTo(tr);
+            
+            appendToTr(tr,item.sum_pre);
+            appendToTr(tr,item[hour-2]);
+            appendToTr(tr,item[hour-1]);
+            appendToTr(tr,item[hour]);
+            appendToTr(tr,item[hour+1]);
+            appendToTr(tr,item[hour+2]);
+          }
+        }
+      },
+      error: function() {
+        alert("获取期号失败");
+      }
+    });
+  });
+    </script>
+	</head>
+	<body>
+	  <table class='common-table'>
+        <thead>
+          <tr>
+            <th style="width: 300px;">
+              站点
+            </th>
+            <th style="width: 120px;">
+              雨量（累计）
+            </th>
+            <th style="width: 120px;">
+              15时
+            </th>
+            <th style="width: 120px;">
+              16时
+            </th>
+            <th style="width: 120px;">
+              17时
+            </th>
+            <th style="width: 120px;">
+              18时
+            </th>
+            <th style="width: 120px;">
+              19时
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >胡家园街（54623）</td>
+            <td >50mm</td>
+            <td >2mm</td>
+            <td >3mm</td>
+            <td >2mm</td>
+            <td >4mm</td>
+            <td >4mm</td>
+          </tr>
+          <tr>
+            <td >胡家园街（54623）</td>
+            <td >50mm</td>
+            <td >2mm</td>
+            <td >3mm</td>
+            <td >2mm</td>
+            <td >4mm</td>
+            <td >4mm</td>
+          </tr>
+          <tr>
+            <td >胡家园街（54623）</td>
+            <td >50mm</td>
+            <td >2mm</td>
+            <td >3mm</td>
+            <td >2mm</td>
+            <td >4mm</td>
+            <td >4mm</td>
+          </tr>
+          <tr>
+            <td >胡家园街（54623）</td>
+            <td >50mm</td>
+            <td >2mm</td>
+            <td >3mm</td>
+            <td >2mm</td>
+            <td >4mm</td>
+            <td >4mm</td>
+          </tr>
+          <tr>
+            <td >胡家园街（54623）</td>
+            <td >50mm</td>
+            <td >2mm</td>
+            <td >3mm</td>
+            <td >2mm</td>
+            <td >4mm</td>
+            <td >4mm</td>
+          </tr>
+        </tbody>
+        </table>
+        <div class="bottom-bar">
+          <span id="returnButton">返回</span>
+          <span id="saveButton">修正</span>
+        </div>
+	</body>
+</html>

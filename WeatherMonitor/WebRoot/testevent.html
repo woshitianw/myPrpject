@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>突发公共事件预警信息发布系统</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='js/libs/jquerydatepicker/daterangepicker.css'>
+    <link rel="stylesheet" href='js/libs/bootstrap/css/bootstrap.min.css'>
+    <link rel="stylesheet" href='js/libs/slider/bootstrap-slider.css'>
+    <script src="js/libs/jquery.js"></script>
+    <script src="js/libs/jquerydatepicker/moment.min.js" type="text/javascript"></script>
+    <script src="js/libs/jquerydatepicker/jquery.daterangepicker.js"></script>
+    <script src="js/libs/slider/bootstrap-slider.js"></script>
+    <script>
+      $(window).load(function()
+        {
+          $('#datetimepicker').dateRangePicker(
+          {
+            inline:true,
+            autoClose: false,
+            singleMonth: true,
+            container:'#datetimepicker',
+            alwaysOpen:true,
+            showTopbar:false
+          });
+          var mySlider = $("#startTimeSlider").slider({
+            min:0,
+            max:24,
+            step:1,
+            tooltip:'always',
+            formatter:function(value){
+              return value+'时';
+            }
+          });
+        });
+    </script>
+    <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+      html{
+        width: 100%;
+        height: 100%;
+      }
+      .tooltip-arrow{
+        display: none;
+      }
+      .tooltip-inner{
+            margin-top: 20px;
+            border-radius: 0;
+            background: transparent;
+            color: #01F2FD;
+            margin-left: 43px;
+            padding: 0;
+      }
+      .slider-selection{
+        background-color: #01F2FD;
+        background-image:none;
+      }
+      .slider-handle{
+        background-image:none;
+        background-color: #F1FBFC;
+        -moz-box-shadow: 0.1rem 0.1rem 0.2rem rgba(234,234,234, 0.8);
+        -webkit-box-shadow: 0.1rem 0.1rem 0.2rem rgba(234,234,234, 0.8);
+        box-shadow: 0.1rem 0.1rem 0.2rem rgba(234,234,234, 0.8);
+      }
+    </style>
+</head>
+
+<body>
+  <!--<input id="date-range12" size="40" value="">-->
+    <div style="width: 400px;height: 300px;position: relative;">
+      <div id="datetimepicker"></div>
+    </div>
+    <input id="startTimeSlider"></input>
+</body>
+</html>

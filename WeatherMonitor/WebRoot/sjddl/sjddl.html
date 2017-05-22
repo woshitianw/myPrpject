@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数据到达率</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap-table.css">
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" href="css/sjddl.css">
+		<script src="../js/libs/require.js" type="text/javascript"></script>
+		<script src="../js/env.js" type="text/javascript"></script>
+		<script src="js/sjddl.js"></script>
+	</head>
+
+	<body>
+		<div class="container-fluid main-div">
+			<div class="row chart-div">
+				<div class="col-xs-4">
+					<div class="row datatitle-div">
+						降雨量到达率
+					</div>
+					<div class="row chart-row" id="rainfall-row">
+						<div class="col-xs-12 datainfo-div">
+							<div class="chart-date"></div>
+							<div id="rainfallChart" class="datachart-div"></div>
+							<div class="backdiv rainfall-play"></div>
+							<div class="godiv rainfall-play"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="row datatitle-div">
+						压温湿风到达率
+					</div>
+					<div class="row chart-row" id="ywsf-row">
+						<div class="col-xs-12 datainfo-div">
+							<div class="chart-date"></div>
+							<div id="ywsfChart" class="datachart-div"></div>
+							<div class="backdiv ywsf-play"></div>
+							<div class="godiv ywsf-play"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="row datatitle-div">
+						其他地面数据到达率
+					</div>
+					<div class="row chart-row" id="other-row">
+						<div class="col-xs-12 datainfo-div">
+							<div class="chart-date"></div>
+							<div id="otherChart" class="datachart-div"></div>
+							<div class="backdiv other-play"></div>
+							<div class="godiv other-play"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row table-div">
+				<div class="col-xs-12">
+					<div class="pa common-table-search" style="">
+						<input type="button">
+					</div>
+					<div id="dataTableContainer">
+						<table class='common-table' id="dataTable">
+							<thead>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

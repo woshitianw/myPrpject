@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-datepicker3.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src="../jquery.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js" charset="UTF-8"></script>
+<script src="locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+<script src="../../core/require.js" data-main="../../env" type="text/javascript"></script>
+</head>
+
+<body>
+<input class="datepicker" data-date-format="yyyy-mm-dd">
+
+<input class="datepicker" data-provide="datepicker" id="mypicker" style="cursor: pointer;">
+
+<script type="text/javascript">
+    $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    autoclose:true,
+    language:"zh-CN"
+});
+</script>
+
+</body>
+</html>

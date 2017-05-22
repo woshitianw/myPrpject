@@ -1,0 +1,15 @@
+/*.mainDiv {
+    margin-top: 50px;
+}*/
+
+html {
+	overflow-x: hidden;
+}
+#firstrow,#secondrow,#thirdrow{
+	position: absolute;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

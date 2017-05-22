@@ -1,0 +1,605 @@
+#mapcontentClass {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+* {
+	padding: 0;
+	margin: 0
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	overflow: hidden;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+
+#mainDiv {
+	height: 100%;
+	width: 100%;
+}
+
+label {
+	color: #43484B;
+	font-size: 12px;
+}
+
+#app-header {
+	position: absolute;
+	width: 100%;
+	height: 100px;
+	background-color: #E6E9EE;
+	overflow: hidden;
+	/*z-index: 10;*/
+}
+
+.logo {
+	/*background-image: url('assets/images/logo.png');*/
+	height: 65px;
+	width: 420px;
+}
+
+#app-content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#menucontainer {
+	width: 100px;
+	position: absolute;
+}
+
+.content-container {
+	height: 100%;
+}
+
+#content-div {
+	padding-right: 0 !important;
+}
+
+#maincontainer-content> [class|="col"] {
+	height: 100%;
+	background-color: transparent;
+}
+
+#maincontainer-menu {
+	height: 25px;
+}
+
+#maincontainer-content {
+	height: 100%;
+	background: url("../assets/basepic.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+#mapbtn {
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	left: 15px;
+	top: 20px;
+	background-image: url("../assets/mapbtn.png");
+	z-index: 1;
+	cursor: pointer;
+}
+
+#mainmenulist {
+	/*height: 47px;*/
+	/*width: 160px;*/
+	position: absolute;
+	left: 70px;
+	top: 32px;
+	font-family: "黑体";
+	font-size: 2rem;
+	text-align: center;
+	color: #FFF;
+	z-index: 1;
+	cursor: pointer;
+	background-color: rgba(10, 115, 202, 0.8);
+	padding: 0.5rem 2rem 0.5rem 2.5rem;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	-moz-box-shadow: 0.2rem 0.4rem 0.2rem rgba(15, 85, 194, 0.8);
+	-webkit-box-shadow: 0.2rem 0.4rem 0.2rem rgba(15, 85, 194, 0.8);
+	box-shadow: 0.2rem 0.4rem 0.2rem rgba(15, 85, 194, 0.8);
+}
+
+.menu-title {
+	padding-left: 1rem;
+	vertical-align: middle;
+	/*box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	-webkit-box-sizing:border-box;*/
+	/*border-left: solid 1px #ffffff;*/
+}
+
+.menu-title:hover {
+	color: #01E5F5;
+}
+
+.menu-title:first-child {
+	margin-left: 0rem;
+	display: inline-block !important;
+}
+
+#menu-title-label {
+	top: 80px;
+	/*background-color: #00A0E9;*/
+	font-family: "黑体";
+	font-size: 18px;
+	color: #FFF;
+	left: 70px;
+	width: 150px;
+	height: 64px;
+	line-height: 60px;
+	text-align: center;
+	background-image: url('../assets/titlebg.png');
+	z-index: 5;
+}
+
+.menu-split {
+	height: 1.2rem;
+	display: inline-block;
+	border-left: 2px solid #ffffff;
+	margin-right: 1rem;
+}
+
+
+/*.menu-split:first-child{
+	display: none;
+}*/
+
+.downmenuul {
+	display: none;
+	width: 141px;
+	margin-top: 10px;
+	background-color: rgba(10, 115, 202, 0.95);
+	text-align: left;
+	border-radius: .5rem;
+	position: absolute;
+	top: 70px;
+	z-index: 0;
+	left: 90px;
+	font-family: "黑体";
+	font-size: 18px;
+	color: #FFF;
+	z-index: 1;
+	-webkit-box-shadow: 0.2rem 0.4rem 0.2rem rgba(15, 85, 194, 0.8);
+}
+
+.downmenuul li:first-child {
+	padding-top: 0.5rem;
+}
+
+.downmenuul li {
+	list-style-type: none;
+	margin: 1rem 0rem 1rem 0rem;
+	padding-left: 2rem;
+	padding-bottom: 1rem;
+	cursor: pointer;
+	border-bottom: solid 2px #0C97D4;
+	z-index: 3;
+}
+
+.downmenuul li:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.downmenuul .content-li:hover {
+	color: #00f3fc;
+}
+
+.downmenuul .split {
+	margin-left: 2px;
+	width: 140px;
+	height: 2px;
+	background-color: #167ACA;
+}
+
+#downmenuul-arrow {
+	background-image: url(../assets/arrow.png);
+	width: 20px;
+	height: 16px;
+}
+
+.content-iframe {
+	height: 100%;
+	border: none;
+	width: 100%;
+}
+
+
+/* popup样式 */
+
+.g-popup-wrapper {
+	background: transparent;
+}
+
+.g-popup-content {
+	border: none;
+	background-color: rgba(11, 46, 94, 0.6);
+	border-radius: 0;
+}
+
+.g-popup-content-wrapper {
+	margin: 0;
+}
+
+.popup-div td {
+	color: #FFF;
+	font-family: '黑体';
+	font-size: 1.5rem;
+}
+
+.popup-div tr {
+	border-bottom: 1px solid #009CE5;
+}
+
+.popup-div tr:last-child {
+	border-bottom: none;
+}
+
+.popup-div .stationname-td {
+	background-color: rgba(4, 123, 186, 0.6);
+	text-align: center;
+	padding: 2px;
+	height: 5rem;
+}
+
+.popup-div .stationintro-td {
+	background-color: rgba(10, 40, 107, 0.6);
+	padding: 2px 2px 2px 67px;
+}
+
+.qyintro-td{
+	padding: 2px 2px 2px 20px;
+}
+
+.popup-div .stationvalue-td {
+	background-color: rgba(7, 26, 71, 0.6);
+	text-align: center;
+	padding: 2px;
+}
+
+.popup-div .close-div {
+	text-align: right;
+	margin-right: 5px;
+}
+
+.popup-div #closebtn {
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.popup-div table {
+	width: 100%;
+}
+
+.g-popup-close {
+	display: none;
+}
+
+#layer-switch {
+	position: absolute;
+	top: 300px;
+	left: 20px;
+}
+
+#layer-switch li {
+	margin-top: 5px;
+}
+
+#layer-switch li label {
+	color: #FFF;
+	font-size: 16px;
+}
+
+#layer-switch-title {
+	display: none;
+	color: #FFF;
+	font-size: 1.5rem;
+	text-align: center;
+	line-height: 2em;
+	width: 175px;
+	border-top-left-radius: 0.4rem;
+	border-top-right-radius: 0.4rem;
+	background-color: #055490;
+}
+
+#layer-switch-content {
+	/*background-color: rgba(10,115,202,0.95);*/
+	display: none;
+	background: url(../assets/layer-switch-content.png) center center no-repeat;
+	width: 183px;
+	height: 162px;
+	text-align: left;
+	border-bottom-left-radius: .4rem;
+	border-bottom-right-radius: .4rem;
+	font-family: "黑体";
+	color: #FFF;
+	z-index: 1;
+	padding-bottom: 20px;
+	padding-right: 20px;
+}
+
+#ls-title {
+	color: #FFF;
+	font-size: 1.3rem;
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 25px;
+}
+
+#ls-title div {
+	margin: 0 auto;
+	background: url(../assets/ls-title.png) left center no-repeat;
+	width: 80px;
+	height: 20px;
+}
+
+#mapset-div {
+	width: 53px;
+	height: 52px;
+	background: url(../assets/mapset.png) center center no-repeat;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+#ls-title div:after {
+	content: "图层列表";
+	margin-left: 12px;
+}
+
+.layerSwitch-li {
+	margin-left: 60px;
+}
+
+.layerSwitch-li div {
+	cursor: pointer;
+	background-position: left center !important;
+	background-repeat: no-repeat !important;
+}
+
+.layerSwitch-li div:after {
+	margin-left: 12px;
+	color: #FFF;
+	font-size: 12px;
+}
+
+#ocean-checkbox>div:after {
+	content: "海岸线";
+}
+
+#xz-checkbox>div:after {
+	content: "乡镇";
+}
+
+#qx-checkbox>div:after {
+	content: "区县";
+}
+
+#radar-checkbox>div:after {
+	content: "雷达";
+}
+
+#yqzz-checkbox>div:after {
+	content: "等值线";
+}
+
+.weatherName-popup {
+	width: 50px;
+	padding: 3px;
+	background-color: #d5ebfd;
+	color: #0b3670;
+	text-align: center;
+	font-size: 13px;
+	-webkit-box-shadow: 2px 2px 0px rgba(4, 27, 61, 0.9);
+	-moz-box-shadow: 2px 2px 0px rgba(4, 27, 61, 0.9);
+	box-shadow: 2px 2px 0px rgba(4, 27, 61, 0.9);
+}
+
+.xzName-popup {
+	width: 120px;
+	padding: 3px;
+	color: #FFF;
+	background-color: #0e65e3;
+	text-align: center;
+	font-size: 13px;
+	-webkit-box-shadow: 2px 2px 0px rgba(40, 83, 145, 0.75);
+	-moz-box-shadow: 2px 2px 0px rgba(40, 83, 145, 0.75);
+	box-shadow: 2px 2px 0px rgba(40, 83, 145, 0.75);
+}
+
+.maphtmlweather {
+	margin-left: -30px;
+	margin-top: -30px;
+}
+.station-value-label{
+	color: #ffffff;
+    display: inline-block;
+    top: -1.8rem;
+    position: absolute;
+    left: -0.8rem;
+    white-space: nowrap;
+}
+#viewCWButton{
+	padding: 0.3rem 0.7rem;
+    background-color: #F19149;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+}
+#viewCWButton:hover{
+    background-color: #F05C29;
+}
+
+.radar-warn{
+	display: none;
+	position: absolute;
+	background-image: url(../assets/radarwarn0.png);
+	width: 53px;
+	height: 52px;
+	top: 348px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.mask-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(20,20,20,0.5);
+	text-align: center;
+	vertical-align: middle;
+	z-index: 10;
+}
+#alert-symbol{
+	display: inline-block;
+    width: 70px;
+    height: 70px;
+    top: 40%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.alert-symbol-animate {
+     background: rgba(69,70,231,0.8);
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    top: -28px;
+    left: -27px;
+    z-index: 5;
+    background-image: url(../assets/warnphone.png);
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.alert-symbol-animate1 {
+     background: rgba(69,70,231,0.6);
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    height: 180px;
+    width: 180px;
+    display: none;
+    position: absolute;
+    top: -56px;
+    left: -57px;
+    z-index: 4;
+}
+.alert-symbol-animate2 {
+     background: rgba(69,70,231,0.4);
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    height: 240px;
+    width: 240px;
+    display: none;
+    position: absolute;
+    top: -83px;
+    left: -86px;
+    z-index: 3;
+}
+
+.alert-symbol-animate3 {
+     background: rgba(69,70,231,0.2);
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 300px;
+    border-radius: 300px;
+    height: 300px;
+    width: 300px;
+    display: none;
+    position: absolute;
+    top: -114px;
+    left: -117px;
+    z-index: 2;
+}
+.legend-label{
+    vertical-align: bottom;
+    font-size: 6px;
+    color: #fff;
+}
+#mask_div{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.55);
+	z-index: 1000;
+}
+
+#poupwindow{
+	position: absolute;
+	border: none;
+}
+
+.layerswitch-up,.layerswitch-down{
+	cursor: pointer;
+	margin-left: 5px;
+}
+.radar-legend
+{
+	position: absolute;
+	width: 125px;
+	height: 300px;
+	bottom: 20px;
+	right:60%;
+	background-color: #fcfcfc;
+	vertical-align: middle;
+	text-align: center;
+	display: none;
+}
+.radar-legend-title{
+	color: #333333;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.radar-legend>table{
+	position: absolute;
+    top: 65px;
+    left: 30px
+}
+.radar-legend > table > tr{
+	width: 35px;
+	height:15px;
+}
+.radar-legend > table > tbody> tr >td:first-child{
+	width: 30px;
+	height:15px;
+	border: none;
+}
+.radar-legend > table > tbody tr >td:last-child{
+	width: 5px;
+	height:12px;
+	border: none;
+	border-top: solid 1px #333;
+}
+.radar-legend>ul{
+	position: absolute;
+    top: 58px;
+    right: 20px;
+    text-align: left;
+}
+.radar-legend>ul>li{
+	line-height: 15px;
+}

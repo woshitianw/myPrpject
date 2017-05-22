@@ -1,0 +1,145 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: transparent;
+}
+
+.m-table {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+ul li {
+    list-style-type: none;
+    width: 667px;
+    position: relative;
+}
+
+.table-search {
+    position: relative;
+    background: url(../assets/search.png) no-repeat;
+    height: 37px;
+    width: 232px;
+    border-radius: 5px;
+    overflow: hidden;
+    left: 435px;
+}
+
+.table-search input[type=text] {
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 17px;
+
+}
+
+.table-search input[type=button] {
+    position: absolute;
+    border: none;
+    outline: none;
+    right: 0;
+    top: 0;
+    width: 52px;
+    height: 37px;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.table-data {
+    width: 667px;
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color: #ffffff;
+    background-color: rgba(4, 123, 186, 0.6);
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.table-data table {
+    width: 100%;
+    border-spacing: 0;
+    /*	border-collapse: border-bottom: none;*/
+    border-top: none;
+}
+
+.table-data table th,
+.table-data table td {
+    padding: 0px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-data th,
+.table-data td {
+    border-right: 1px solid #00a0e9;
+}
+
+.table-data tbody td {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    height: 35px;
+}
+
+.table-data tbody tr:nth-child(odd) {
+    background-color: rgba(14, 45, 113, 0.6);
+}
+
+.table-data tbody tr:nth-child(even) {
+    background-color: rgba(7, 27, 75, 0.6);
+}
+
+.dispose-info input[type=button] {
+    position: relative;
+    border: none;
+    outline: none;
+    width: 104px;
+    height: 16px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/*自定义滚动条*/
+
+::-webkit-scrollbar-track-piece {
+    border-radius: 10px;
+    background-color: #61b8cf;
+    /*background-image: url(../img/site-info/12.png);*/
+    border-left: 0px solid white;
+}
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 17px;
+    height: 17px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: white;
+    background-clip: padding-box;
+    border: 0px solid #2498fb;
+    min-height: 28px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    border: 0px solid #2498fb;
+    background-color: antiquewhite;
+}
+
+​

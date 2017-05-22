@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>突发公共事件预警信息发布系统</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="js/libs/geohey/g.css">
+		<link rel="stylesheet" href="js/libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index.css">
+
+		<script src="js/libs/jquery.js" type="text/javascript"></script>
+		<script src="js/libs/require.js" type="text/javascript"></script>
+		<script src="js/env.js" type="text/javascript"></script>
+		<script src="js/index.js"></script>
+	</head>
+
+	<body>
+		<div id="mainDiv">
+			<div id="app-content">
+				<div id="maincontainer" class="container-fluid content-container">
+					<div class="row" id="maincontainer-content">
+						<div class="pa" style="width: 55%;top:0px;bottom: 0px;left: 0px;">
+							<div id="mainmenulist">
+								<span class="menu-title" id="menu-station-title" menu='station'><span class="menu-split" style="display: none;"></span>自动站</span>
+								<span class="menu-title dn" id="menu-qy-title" menu='qy'><span class="menu-split"></span>专业服务</span>
+								<span class="menu-title dn" id="menu-yb-title" menu='yb'><span class="menu-split"></span>预报服务</span>
+							</div>
+							<div id="mapbtn"></div>
+							<span class="pa dn" id='downmenuul-arrow'></span>
+							<ul class="downmenuul" id="downmenuul">
+							</ul>
+							<span class="pa" id="menu-title-label"></span>
+							<div id="mapcontentClass"></div>
+							<div id="layer-switch">
+								<span class="dib" id='layer-switch-title'>图层管理器</span>
+								<div id="layer-switch-content">
+									<div id="ls-title">
+										<div></div>
+									</div>
+								</div>
+
+								<div id="mapset-div"></div>
+							</div>
+						</div>
+						<div class="pa" style="width: 59.9%;right:0px;top:0px;bottom:0px" id="content-div">
+						</div>
+						<div class="radar-legend">
+						  <span class="radar-legend-title">雷达图例</span><br>
+						  <span id="radardate" style="text-align: left;width: 90%;display: inline-block;">日期：</span>
+						  <span id='radartime' style="text-align: left;width: 90%;display: inline-block;">时间：</span>
+						  <table>
+						    <tbody>
+						    <tr>
+						      <td style="background-color: #00ACA4;"></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+                  <td style="background-color: #C0C0FE;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #7A72EE;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #1E26D0;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #A6FCA8;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #00EA00;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #10921A;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #FCF464;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #C8C802;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #8C8C00;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #FEACAC;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #FE645C;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #EE0230;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #D48EFE;"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style="background-color: #AA24FA;"></td>
+                  <td></td>
+                </tr>
+                </tbody>
+                <ul>
+                  <li>-5</li>
+                  <li>0&nbsp;dBZ</li>
+                  <li>5</li>
+                  <li>10</li>
+                  <li>15</li>
+                  <li>20</li>
+                  <li>25</li>
+                  <li>30</li>
+                  <li>35</li>
+                  <li>40</li>
+                  <li>45</li>
+                  <li>50</li>
+                  <li>55</li>
+                  <li>60</li>
+                  <li>65</li>
+                </ul>
+						  </table>
+						</div>
+						<span class="radar-warn"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="_self_top_tag"></div>
+		<script src="js/libs/geohey/g.min.js"></script>
+		<div id="mask_div">
+		  <iframe id="poupwindow"></iframe>
+		</div>
+		
+	</body>
+
+</html>

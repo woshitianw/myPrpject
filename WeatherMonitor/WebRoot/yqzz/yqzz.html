@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>雨情制作</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap-table.css">
+		<link href="../js/libs/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../js/libs/jquerydatepicker/daterangepicker.css">
+		<link rel="stylesheet" href='../js/libs/slider/bootstrap-slider.css'>
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" href="css/yqzz.css">
+		<script src="../js/libs/require.js" type="text/javascript"></script>
+		<script src="../js/env.js" type="text/javascript"></script>
+		<script src="js/yqzz.js"></script>
+	</head>
+
+	<body>
+		<div id="firstrow">
+		  <div class="pr calendar-container">
+		    <div id="datetimepicker"></div>
+		    <div class="pr timeContainer">
+		      <span class="pa left-arrow" slider='startTimeSlider' type='down'></span>
+		      <input id="startTimeSlider"></input>
+		      <span class="pa timelabel">开始</span>
+		      <span class="pa right-arrow" slider='startTimeSlider' type='up'></span>
+		    </div>
+		    <div class="pr timeContainer" style="margin-top: 0px">
+          <span class="pa left-arrow" slider='endTimeSlider' type='down'></span>
+          <input id="endTimeSlider"></input>
+          <span class="pa timelabel">结束</span>
+          <span class="pa right-arrow" slider='endTimeSlider' type='up'></span>
+        </div>
+		  </div>
+		  <div class="pr post-container">
+		    <div class="fr optionbar">
+            <span class="option-select">实况监测</span>
+            <span>雨情制作</span>
+            <span>历史查询</span>
+        </div>
+        <div class="yqzz-msg-container">
+          <p>期号：<span id="issueNumber"></span><span id="changeIssueButton">修改默认期号</span>
+            <span class="update-issue" id="cancleupdateissue">取消</span><span class="update-issue" id="okupdateissue">确定</span><input class="update-issue" type="text" id="issueInput">
+          </p>
+          <div class="yqzz-xqyq-template">受
+      <!--<select class="form-control" id="option_reason">
+          <option>高空槽</option>
+          <option>低涡</option>
+          <option>冷空气</option>
+          <option>地面倒槽</option>
+          <option>地面气旋</option>
+          <option>切变线</option>
+          <option>副热带高压外围</option>
+        </select>-->
+        <div id="option_reason" class="hd-dropdownlist"></div>
+                  影响，滨海新区<div id="option_timeduring" class="hd-dropdownlist"></div>
+        <!--<select class="form-control" id="option_timeduring">
+          <option>昨天白天到夜间</option>
+          <option>昨天下午到夜间</option>
+          <option>昨天傍晚到夜间</option>
+          <option>昨天白天</option>
+          <option>昨天上午</option>
+          <option>昨天下午</option>
+          <option>昨天傍晚</option>
+          <option>昨天夜间</option>
+          <option>今天早晨</option>
+          <option>今天凌晨</option>
+        </select>--><div id="option_pinlv" style="width:115px" class="hd-dropdownlist"></div>
+<!--<select class="form-control" id="option_pinlv">
+  <option>普降</option>
+  <option>部分地区</option>
+  <option>大部分地区</option>
+  <option>个别地区</option>
+</select>-->
+<div id="option_all_yl" style="width:115px" class="hd-dropdownlist"></div>
+          <!--<select class="form-control" id="option_all_yl">
+  <option>零星小雨</option>
+  <option>阵雨</option>
+  <option>雷阵雨</option>
+  <option>小雨</option>
+  <option>小到中雨</option>
+  <option>中雨</option>
+  <option>中雷阵雨</option>
+  <option>大雨</option>
+  <option>大到暴雨</option>
+  <option>暴雨</option>
+</select>-->
+          <div id="option_region_yl" style="width:115px" class="hd-dropdownlist"></div>
+          
+          <!--<select class="form-control" id="option_region_yl">
+  <option>大雨</option>
+  <option>中雨</option>
+  <option>暴雨</option>
+</select>-->
+，全区自动雨量观测站中，最大雨量出现在
+<span class="max-yl-place"></span>，雨量为
+<span class="max-yl-hm"></span>毫米。自<span class="yqzz-starttime">[未选择]</span>至<span class="yqzz-endtime">[未选择]</span>滨海新区及市区雨情如下：</div>
+        </div>
+        <span class="createIsonlineButton">生成等值线分析图</span>
+		  </div>
+		</div>
+		<div id="secondrow">
+		  <span id="yqzz-clear-button">清除</span>
+		  <div class="pr fr optionbar" id="yqzz-controlbar" style="margin-right: 14px;">
+        <span id="yqzz-preview-button">预览</span>
+        <span id="yqzz-edit-button">修正</span>
+        <span id="yqzz-create-button">生成</span>
+      </div>
+		  <div class="pr optionbar" id="yqzz-optionbar">
+        <span class="option-select">功能区</span>
+        <span>所有</span>
+      </div>
+      <table class='common-table' id="gnqTable" style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th style="width: 90px;">
+            </th>
+            <th style="width: 300px;">
+              站点
+            </th>
+            <th style="width: 120px;">
+              雨量
+            </th>
+            <th style="width: 300px;">
+              站点
+            </th>
+            <th style="width: 120px;">
+              雨量
+            </th>
+            <th style="width: 300px;">
+              站点
+            </th>
+            <th style="width: 120px;">
+              雨量
+            </th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3">功能区</td>
+            <td >天津开发区（54623）</td>
+            <td sid='54623'>0mm</td>
+            <td >东疆保税港区（A3171）</td>
+            <td sid='A3171'>0mm</td>
+            <td >保税区（A3162）</td>
+            <td sid='A3162'>0mm</td>
+          </tr>
+          <tr>
+            <td >中新天津生态城（A3175）</td>
+            <td sid='A3175'>0mm</td>
+            <td >滨海高新区（A3161）</td>
+            <td sid='A3161'>0mm</td>
+            <td >中心商务区（A3170）</td>
+            <td sid='A3170'>0mm</td>
+          </tr>
+          <tr>
+            <td >临港经济区（A3101）</td>
+            <td sid='A3101'>0mm</td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+          </tr>
+          <tr>
+            <td rowspan="3">中部</td>
+            <td >新河街（A3164）</td>
+            <td sid='A3164'>0mm</td>
+            <td >北塘街（A3104）</td>
+            <td sid='A3104'>0mm</td>
+            <td >塘沽街（A3105）</td>
+            <td sid='A3105'>0mm</td>
+          </tr>
+          <tr>
+            <td >胡家园街（A3106）</td>
+            <td sid='A3106'>0mm</td>
+            <td >新城镇（A3103）</td>
+            <td sid='A3103'>0mm</td>
+            <td >大沽街（A3163）</td>
+            <td sid='A3163'>0mm</td>
+          </tr>
+          <tr>
+            <td >新北街（A3161）</td>
+            <td sid='A3161'>0mm</td>
+            <td >泰达街（A3169）</td>
+            <td sid='A3169'>0mm</td>
+            <td >杭州道街（A3102）</td>
+            <td sid='A3102'>0mm</td>
+          </tr>
+          <tr>
+            <td rowspan="2">北部</td>
+            <td >汉沽街（A2802）</td>
+            <td sid='A2802'>0mm</td>
+            <td >杨家泊镇（A2801）</td>
+            <td sid='A2801'>0mm</td>
+            <td >太平镇（A2607）</td>
+            <td sid='A2607'>0mm</td>
+          </tr>
+          <tr>
+            <td >寨上街（A2803）</td>
+            <td sid='A2803'>0mm</td>
+            <td >茶淀街（54530）</td>
+            <td sid='54530'>0mm</td>
+            <td >小王庄镇（A2609）</td>
+            <td sid='A2609'>0mm</td>
+          </tr>
+          <tr>
+            <td rowspan="2">南部</td>
+            <td >大港街（54645）</td>
+            <td sid='54645'>0mm</td>
+            <td >古林街（A2602）</td>
+            <td sid='A2602'>0mm</td>
+            <td >海滨镇（A2604）</td>
+            <td sid='A2604'>0mm</td>
+          </tr>
+          <tr>
+            <td >中塘镇（A2608）</td>
+            <td sid='A2608'>0mm</td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class='common-table' id="othersTable" style="margin-top: 1rem;display: none;">
+        <thead>
+          <tr>
+            <th>
+              站点
+            </th>
+            <th>
+              雨量
+            </th>
+            <th><!--width: 21%;-->
+              站点
+            </th>
+            <th>
+              雨量
+            </th>
+            <th>
+              站点
+            </th>
+            <th>
+              雨量
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >天津开发区（54623）</td>
+            <td sid='54623'>0mm</td>
+            <td >东疆保税港区（A3171）</td>
+            <td sid='A3171'>0mm</td>
+            <td >保税区（A3162）</td>
+            <td sid='A3162'>0mm</td>
+          </tr>
+          <tr>
+            <td >中新天津生态城（A3175）</td>
+            <td sid='A3175'>0mm</td>
+            <td >滨海高新区（A3161）</td>
+            <td sid='A3161'>0mm</td>
+            <td >中心商务区（A3170）</td>
+            <td sid='A3170'>0mm</td>
+          </tr>
+          <tr>
+            <td >临港经济区（A3101）</td>
+            <td sid='A3101'>0mm</td>
+            <td >新河街（A3164）</td>
+            <td sid='A3164'>0mm</td>
+            <td >北塘街（A3104）</td>
+            <td sid='A3104'>0mm</td>
+          </tr>
+          <tr>
+            <td >塘沽街（A3105）</td>
+            <td sid='A3105'>0mm</td>
+            <td >胡家园街（A3106）</td>
+            <td sid='A3106'>0mm</td>
+            <td >新城镇（A3103）</td>
+            <td sid='A3103'>0mm</td>
+          </tr>
+          <tr>
+            <td >大沽街（A3163）</td>
+            <td sid='A3163'>0mm</td>
+            <td >新北街（A3161）</td>
+            <td sid='A3161'>0mm</td>
+            <td >泰达街（A3169）</td>
+            <td sid='A3169'>0mm</td>
+          </tr>
+          <tr>
+            <td >杭州道街（A3102）</td>
+            <td sid='A3102'>0mm</td>
+            <td >汉沽街（A2802）</td>
+            <td sid='A2802'>0mm</td>
+            <td >杨家泊镇（A2801）</td>
+            <td sid='A2801'>0mm</td>
+          </tr>
+          <tr>
+            <td >太平镇（A2607）</td>
+            <td sid='A2607'>0mm</td>
+            <td >寨上街（A2803）</td>
+            <td sid='A2803'>0mm</td>
+            <td >茶淀街（54530）</td>
+            <td sid='54530'>0mm</td>
+          </tr>
+          <tr>
+            <td >小王庄镇（A2609）</td>
+            <td sid='A2609'>0mm</td>
+            <td >大港街（54645）</td>
+            <td sid='54645'>0mm</td>
+            <td >古林街（A2602）</td>
+            <td sid='A2602'>0mm</td>
+          </tr>
+          <tr>
+            <td >海滨镇（A2604）</td>
+            <td sid='A2604'>0mm</td>
+            <td >中塘镇（A2608）</td>
+            <td sid='A2608'>0mm</td>
+            <td >海河防潮闸（A3170）</td>
+            <td sid='A3170'>0mm</td>
+          </tr>
+          <tr>
+            <td >南台村（A2601）</td>
+            <td sid='A2601'>0mm</td>
+            <td >刘岗庄（A2603）</td>
+            <td sid='A2603'>0mm</td>
+            <td >南港工业区（A2605）</td>
+            <td sid='A2605'>0mm</td>
+          </tr>
+          <tr>
+            <td class="cal-td">郭庄子（A2661）</td>
+            <td style="width: 120px;" sid='A2661'>0mm</td>
+            <td class="cal-td">马棚口（A2662）</td>
+            <td style="width: 120px;" sid='A2662'>0mm</td>
+            <td class="cal-td">钱圈水库（A2663）</td>
+            <td style="width: 120px;" sid='A2663'>0mm</td>
+          </tr>
+          <tr>
+            <td >沙井子（A2664）</td>
+            <td sid='A2664'>0mm</td>
+            <td >上古林东（A2665）</td>
+            <td sid='A2665'>0mm</td>
+            <td >马一村（A2666）</td>
+            <td sid='A2666'>0mm</td>
+          </tr>
+          <tr>
+            <td >大神堂（A2804）</td>
+            <td sid='A2804'>0mm</td>
+            <td >罗卜坨（A2805）</td>
+            <td sid='A2805'>0mm</td>
+            <td >洒金坨（A2861）</td>
+            <td sid='A2861'>0mm</td>
+          </tr>
+          <tr>
+            <td >白庄（A2862）</td>
+            <td sid='A2862'>0mm</td>
+            <td >海滨浴场（A3107）</td>
+            <td sid='A3107'>0mm</td>
+            <td >旅游区管委会（A3165）</td>
+            <td sid='A3165'>0mm</td>
+          </tr>
+          <tr>
+            <td >起步区泵站（A3166）</td>
+            <td sid='A3166'>0mm</td>
+            <td >海晶西（A3167）</td>
+            <td sid='A3167'>0mm</td>
+            <td >十一大街（A3168）</td>
+            <td sid='A3168'>0mm</td>
+          </tr>
+          <tr>
+            <td >开发西区东北组（A3173）</td>
+            <td sid='A3173'>0mm</td>
+            <td >开发西区中南组（A3174）</td>
+            <td sid='A3174'>0mm</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+		</div>
+		
+		<div class="table-container">
+		  <div class="timeselectcontainer">
+		    <span>开始时间：</span>
+		    <input data-provide="datepicker" id="history_starttime" style="cursor: pointer;">
+		    <!--<div id="history_starttime"></div>-->
+		    <span>结束时间：</span>
+		    <input data-provide="datepicker" id="history_endtime" style="cursor: pointer;">
+		    <span class="thebutton" id="history_query">查询</span>
+        <span class="thebutton" id="history_all">显示全部</span>
+		  </div>
+		  <table class='common-table' id="historyTable">
+      <thead>
+      </thead>
+    </table>
+		</div>
+		
+		
+		<iframe id="fileDownFrame" src="" style="display:none; visibility:hidden;"></iframe>
+	</body>
+
+</html>

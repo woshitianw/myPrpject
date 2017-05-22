@@ -1,0 +1,149 @@
+body {
+	color: #FFF;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	overflow-x: hidden;
+}
+
+.chart-row {
+	margin-top: 20px;
+	/*background-color: #075FF3;
+	filter:alpha(opacity=60);  
+	-moz-opacity:0.6;  
+	-khtml-opacity: 0.6;  
+	opacity: 0.6; */
+	background: rgba(7, 95, 243, 0.5);
+}
+
+.main-div {
+	margin-top: 50px;
+}
+
+#title-div {
+	background: rgba(7, 95, 243, 0.5);
+	display: inline;
+	font-size: 28px;
+	padding: 6px 10px;
+	margin-bottom: 10px;
+}
+
+.weather-div {
+	height: 360px;
+}
+
+.weathericon-div {
+	width: 43px;
+	height: 43px;
+	margin-top: 3px;
+	border-radius: 5px;
+}
+
+.weathericon-div.weatherDayIcon-div {
+	background-color: #1f8ce8;
+}
+
+.weathericon-div.weatherNightIcon-div {
+	background-color: #1a23a3;
+}
+
+
+/*
+ * echarts折线图并非从div最左边开始绘制，所以会比div小，
+ * 为了和上下显示对齐，将div宽度暂时设置为固定值
+ */
+
+#weatherChart {
+	height: 205px;
+	padding: 0;
+	/*left: -60px;*/
+	margin-top: 10px;
+	/*border:1px red solid;*/
+	width:100%;
+}
+
+.col-xs-1 {
+	text-align: center;
+	position: relative;
+	font-size: 15px;
+}
+
+.cloud-div {
+	/*position: relative;
+	width: 100%;*/
+}
+
+.weatherdetail-div {
+	/*height: 360px;*/
+	background: rgba(7, 95, 243, 0.5);
+	margin-top: 10px;
+	padding-bottom: 40px;
+}
+
+.weatherdetail-div .row {
+	margin-top: 40px;
+}
+
+.inline-div {
+	display: inline-block;
+}
+
+.simpleinfo-div {
+	font-size: 24px;
+}
+
+.detailinfo-div {
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	-khtml-opacity: 0.6;
+	opacity: 0.6;
+	word-wrap: normal;
+}
+
+#weathertime-div {
+	margin-top: 10px;
+	/*margin-bottom: 20px;*/
+	height: 67px;
+}
+
+.infoimg-div {
+	font-size: 15px;
+	height: 60px;
+	width: 100px;
+	text-align: center;
+	vertical-align: top;
+	padding-top: 10px;
+}
+
+.info-div {
+	margin-left: 10px;
+	width: 160px;
+}
+
+.zs-div {
+	height: 55px;
+	margin-bottom: 5px;
+}
+
+#zwxzs-div {
+	background: url(../../assets/tqyb/zwxzs.png) center center no-repeat;
+}
+
+#gmzs-div {
+	background: url(../../assets/tqyb/gmzs.png) center center no-repeat;
+}
+
+#cyzs-div {
+	background: url(../../assets/tqyb/cyzs.png) center center no-repeat;
+}
+
+#xczs-div {
+	background: url(../../assets/tqyb/xczs.png) center center no-repeat;
+}
+
+#ydzs-div {
+	background: url(../../assets/tqyb/ydzs.png) center center no-repeat;
+}
+
+#kqwrzs-div {
+	background: url(../../assets/tqyb/kqkszs.png) center center no-repeat;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html >
+<html >
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<script src="js/libs/jquery.js" type="text/javascript"></script>
+		<script>
+		  (function($){$.fn.hdDropDownList = function(opt){
+		    if(opt == null){
+		      opt={};
+		    }
+        console.log('custom hdDropDownList');
+        var self=this;
+        var selfdom = $(this)[0];
+        $(this).addClass('hd-dropdownlist');
+        var selectdom = $("<select></select>").appendTo($(this));
+        var textInput = $("<input type='text' placeholder='输入/选择'/>").appendTo($(this));
+        if(opt.items == null){
+          opt.items = [];
+        }
+        textInput.css('height',$(this).height()-6);
+        var w = $(this).width()-30;
+        textInput.css('position','absolute');
+        textInput.css('width',w+'px');
+        selectdom.css('height',$(this).height());
+        selectdom.css('width',$(this).width());
+        selectdom.css('position','absolute');
+        for(var i=0;i<opt.items.length;i++) {
+          var item = opt.items[i]
+          var option = $("<option>"+item+"</option>").appendTo(selectdom);
+          option.attr('value',item);
+        }
+        $(selectdom)[0].selectedIndex=-1;
+        $(selectdom).change(function(evt){
+          var txt = $(selectdom).val();
+          console.log(txt);
+          $(textInput).val(txt);
+        });
+        
+        function val(){
+          return $(textInput).val();
+        }
+        
+        return {dom:$(this)[0],
+                val:val
+                };
+        
+      }})(jQuery);
+		</script>
+		<script type="text/javascript">
+			function createEditableSelect(obj, node) {
+				var div = document.createElement("div");
+				div.style.position ="absolute";
+				var text = document.createElement("input");
+				text.type = "text";
+				text.id = "";
+				var sel = document.createElement("select");
+				for(var i in obj) {
+					var option = document.createElement("option");
+					option.value = obj[i];
+					option.innerHTML = i;
+					sel.appendChild(option);
+				}
+				sel.onchange = function() {
+					var con = sel[sel.selectedIndex].innerHTML;
+					text.value = con;
+				}
+				sel.style.position = "absolute";
+				sel.style.width = "200px";
+				sel.style.height = "30px";
+				text.style.position = "absolute";
+				text.style.width = "175px";
+				text.style.height = "24px";
+				text.placeholder ="输入/选择";
+				div.appendChild(sel);
+				div.appendChild(text);
+				if(!node) {
+					document.body.appendChild(div);
+				} else {
+					node.appendChild(div);
+				}
+			}
+			var dropdownlist = null;
+			window.onload = function() {
+//				createEditableSelect({
+//					'1': 'a',
+//					'2': 'b',
+//					'3': 'c'
+//				});
+				
+				dropdownlist = $('#plug').hdDropDownList({
+				  items:['高空槽','冷空气']
+				});
+			}
+			
+			function getValue(){
+			  alert(dropdownlist.val());
+			}
+		</script>
+	</head>
+
+	<body>
+	  
+	  <div id="plug" style="width:300px;height:30px;position:relative"></div>
+	  
+	  <button onclick="getValue()">取值</button>
+	  <select ><option></option><option>1</option><option>2</option></select>
+	</body>
+
+</html>

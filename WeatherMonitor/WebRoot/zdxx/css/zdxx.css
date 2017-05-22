@@ -1,0 +1,243 @@
+/*.mainDiv {
+    margin-top: 50px;
+}*/
+
+html {
+	overflow-x: hidden;
+}
+
+/*#arriveInfoContainer .row {
+	margin: 5px;
+}*/
+
+#arriveInfoContainer .chart-title {
+	padding: 5px;
+	padding-left: 15px;
+	font-family: "Microsoft YaHei";
+	font-size: 28px;
+	color: #FFF;
+	border-radius: 5px 5px 0 0;
+	background: rgba(7, 95, 243, 0.5);
+}
+
+#arriveInfoContainer .chart-content {
+	background: rgba(7, 95, 243, 0.5);
+}
+
+#arriveInfoContainer .chart-content #chart-date {
+	position: absolute;
+	top: 3px;
+	left: 15px;
+	font: 15px "Microsoft YaHei";
+	color: #FFF;
+}
+
+#arriveInfoContainer .chart-content #chart-play {
+	position: absolute;
+	/*bottom: 10px;
+	right: 10px;*/
+	width: 100%;
+	top: 140px;
+	height: 40px;
+}
+
+#chart-play div {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+
+#chart-play #backdiv,
+#chart-play #godiv {
+	width: 18px;
+	height: 18px;
+}
+
+#chart-play #backdiv {
+	position: absolute;
+	left: 15%;
+	background: url("../../assets/stationinfo/assistbtn.png") no-repeat;
+}
+
+#chart-play #godiv {
+	position: absolute;
+	right: 15%;
+	background: url("../../assets/stationinfo/assistbtn.png") no-repeat;
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	transform: scaleX(-1);
+	/*IE*/
+	filter: FlipH;
+}
+
+#chartlivedata {
+	padding: 0;
+}
+
+#chartlivedata .row,
+#chartlivedata .row .col-xs-3 {
+	height: 100%;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+#chartlivedata .livedata-div {
+	margin-top: 40px;
+	height: 70%;
+	text-align: center;
+}
+
+#chartlivedata .livedata-div .dataimg-div {
+	width: 54px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+#chartlivedata .livedata-div .dataname-div {
+	margin-top: 20px;
+	font-family: "Adobe 黑体 Std R";
+	font-size: 18px;
+	color: #FFF;
+}
+
+#chartlivedata .livedata-div .datainfo-div {
+	margin-top: 40px;
+	font-family: "黑体";
+	font-size: 20px;
+	color: #fcff00;
+}
+
+#currenttemp {
+	background: url("../../assets/stationinfo/currenttemp.png") center center no-repeat;
+}
+
+#instwind,#maxwind,#winddir {
+	background: url("../../assets/stationinfo/winddir.png") center center no-repeat;
+}
+
+#rainfall {
+	background: url("../../assets/stationinfo/rainfall.png") center center no-repeat;
+}
+
+#humidity {
+	background: url("../../assets/stationinfo/humidity.png") center center no-repeat;
+}
+
+#njd{
+	background: url("../../assets/stationinfo/njd.png") center center no-repeat;
+}
+
+.m-table {
+	margin-top: 45px;
+}
+
+.viewdiv {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60px;
+	height: 24px;
+	background: url(../../assets/stationinfo/view.png) no-repeat;
+	cursor: pointer;
+}
+
+.viewdiv:hover {
+	background: url(../../assets/stationinfo/view-hover.png) no-repeat;
+}
+
+.lsdb-bg {
+	background-repeat: repeat;
+	background-image: url('../../assets/lsdb/bg.png');
+	height: 415px;
+	color: #FFFFFF;
+	font-family: "微软雅黑";
+	font-size: 1.4rem;
+	margin-right: 15px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	margin-top: 10px;
+}
+
+.lsdb-chart {
+	height: 250px;
+	/*background-color: #FD8400;*/
+	left: 10px;
+	right: 10px;
+	position: absolute;
+	top: 20px;
+}
+
+.lsdb-table {
+	position: absolute;
+	top: 280px;
+	left: 10px;
+	right: 10px;
+	bottom: 57px;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.lsdb-table table th,
+.lsdb-table table td {
+	padding: 0px;
+	height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	border-right: 1px solid #00a0e9;
+}
+
+.lsdb-container {
+	width: 1104px;
+}
+
+.lsdb-chart-optionbar span {
+	margin-left: 20px;
+	cursor: pointer;
+	font-size: 1.8rem;
+}
+
+.lsdb-option-select {
+	background-color: #13B2AD;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+#lsdb-chart-div {
+	width: 100%;
+	height: 200px;
+	margin-top: 20px;
+}
+
+.banner {
+	position: relative;
+	overflow: auto;
+}
+
+.banner li {
+	list-style: none;
+}
+
+.banner ul li {
+	float: left;
+}
+.unslider-nav {
+	margin-top: 20px;
+}
+.unslider-arrow {
+	display: none;
+}
+
+.unslider-nav ol li{
+	width:10px;
+	height:10px;
+}
+.col-xs-12{
+	padding: 0;
+}
+.row{
+	margin: 0;
+}
+
+.col-xs-6{
+	padding: 0px;
+}

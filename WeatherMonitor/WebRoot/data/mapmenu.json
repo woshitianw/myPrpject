@@ -1,0 +1,43 @@
+{
+  "mapmenu": 
+	  {
+  		"station":[
+					{
+					    "label": "站点信息",
+					    "id": "statinfo"
+					  },
+					  {
+					    "label": "数据到达率",
+					    "id": "datareachrate"
+					  },
+					  {
+					    "label": "报警信息",
+					    "id": "warninginfo"
+					  }
+  		           ],
+  		 "qy":[
+				{
+				    "label": "企业信息",
+				    "id": "qyinfomation"
+				  },
+				  {
+					    "label": "报警信息",
+					    "id": "warninginfo_qy"
+					},
+					{
+						"label":"外呼定位",
+						"id":"callposition"
+					}
+  		       ],
+  		  "yb":[
+				{
+				    "label": "天气预报",
+				    "id": "weatherforecast"
+				  },
+				  {
+					    "label": "雨情制作",
+					    "id": "yqzz"
+					  }
+  		        ]
+	  }
+}

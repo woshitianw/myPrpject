@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>报警信息</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap-table.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/bjxx.css">
+    <link rel="stylesheet" href="../css/jquery.svg.css">
+    <script src="../js/libs/require.js" type="text/javascript"></script>
+    <script src="../js/env.js" type="text/javascript"></script>
+    <script src="js/bjxx.js"></script>
+</head>
+<body>
+<div>
+    <div class="pa flow-chart">
+      <div class="pa" style="width: 100%;height:100%;" id="chart-svg"></div>
+      <div class="pa chart-legend">
+        <div>
+          <span id="legend-ok"></span>
+          <span>发送成功</span>
+        </div>
+        <div>
+          <span id="legend-wait"></span>
+          <span>等待</span>
+        </div>
+        <div>
+          <span id="legend-fail"></span>
+          <span>发送失败</span>
+        </div>
+      </div>
+      <div class="pa flow-charticon" id="flowchart-zdjcxt-icon" style="top:128px;left:70px;cursor: default;">
+        <span style="background-image:url(images/01.png);display: block;width: 156px;height:160px"></span>
+        <span>自动检测系统</span>
+      </div>
+      <div class="pa flow-charticon" id="flowchart-fbsd-icon" style="top:140px;left:355px;cursor: default;">
+        <span style="background-image:url(images/02.png);display: block;width: 134px;height:134px"></span>
+        <span>发布手段</span>
+      </div>
+      <!--<div class="pa flow-charticon" id="flowchart-sj-icon" style="top:46px;left:689px;">
+        <span style="background-image:url(images/03.png);display: block;width: 113px;height:116px"></span>
+        <span>手机</span>
+      </div>
+      <div class="pa flow-charticon" id="flowchart-wh-icon" style="top:154px;left:789px;">
+        <span style="background-image:url(images/04.png);display: block;width: 113px;height:116px"></span>
+        <span>外呼</span>
+      </div>
+      <div class="pa flow-charticon" id="flowchart-cz-icon" style="top:260px;left:689px;">
+        <span style="background-image:url(images/03.png);display: block;width: 113px;height:116px"></span>
+        <span>传真</span>
+      </div>-->
+    </div>
+    <div class="pa table-container">
+      <div class="pr optionbar">
+        <span class="option-select">已通过</span>
+        <span>待审核</span>
+        <span>未通过</span>
+      </div>
+      <div class="pa common-table-search" style="">
+          <input type="button">
+      </div>
+      <div id="warnTableContainer">
+        <table class='common-table' id="warnTable">
+          <thead>
+          </thead>
+        </table>
+      </div>
+      <div id="warnTableDetailContainer" style="display: none;">
+        <table class='common-table' id="warnDetailTable">
+          <thead>
+          </thead>
+        </table>
+      </div>
+      <span class="pa" id="returnButton">返回</span>
+      <div id="warnInfoContent"></div>
+    </div>
+    
+    <div class="pa" id='receipt-panel' style="display: none;z-index: 10;">
+        <span class="pa glyphicon glyphicon-remove" id="receipt-close"></span>
+        <span id='receipt-content'></span>
+        <div class="receipt-count-div">
+          <span id='receipt-ok-count'>0成功</span>
+          <span id='receipt-wait-count'>0等待</span>
+          <span id='receipt-error-count'>0失败</span>
+        </div>
+        <div style="width: 100%;overflow-y: auto;height:189px">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 160px;">手机号</th>
+                <th style="width: 231px;">发送时间</th>
+                <th style="width: 231px;">回执时间</th>
+                <th style="width: 231px;">发送状态</th>
+              </tr>
+            </thead>
+            <tbody id="receipt-tbody">
+            </tbody>
+          </table>
+        </div>
+    </div>
+</body>
+</html>

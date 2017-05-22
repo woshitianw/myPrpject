@@ -1,0 +1,76 @@
+body {
+	color: #FFF;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+
+.main-div {
+	margin-top: 50px;
+}
+
+.datatitle-div {
+	padding: 5px;
+	padding-left: 15px;
+	font-size: 28px;
+	border-radius: 5px 5px 0 0;
+}
+
+.chart-div .row {
+	margin: 5px;
+}
+
+.chart-div .row {
+	background: rgba(7, 95, 243, 0.5);
+}
+
+.chart-div .datainfo-div {
+	height: 320px;
+}
+
+.datachart-div {
+	width: 100%;
+	height: 300px;
+}
+
+.chart-date {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	font-size: 15px;
+	color: #FFF;
+}
+
+.backdiv, .godiv {
+	position: absolute;
+	top: 140px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.backdiv {
+    position: absolute;
+    left: 20px;
+    background: url("../../assets/stationinfo/assistbtn.png") no-repeat;
+}
+
+.godiv {
+    position: absolute;
+    right: 20px;
+    background: url("../../assets/stationinfo/assistbtn.png") no-repeat;
+
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    /*IE*/
+    filter: FlipH;
+}
+
+#dataTableContainer {
+	margin-top: 45px;
+}
+
+.chart-row {
+	cursor: pointer;
+}

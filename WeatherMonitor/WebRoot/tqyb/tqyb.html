@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>天气预报</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" href="css/tqyb.css">
+		<script src="../js/libs/require.js" type="text/javascript"></script>
+		<script src="../js/env.js" type="text/javascript"></script>
+		<script src="js/tqyb.js"></script>
+	</head>
+
+	<body>
+		<div class="container main-div">
+			<div class="row">
+				<div id="title-div">滨海新区</div>
+			</div>
+			<div class="row chart-row">
+				<div class="col-xs-12 weather-div">
+					<div class="row" id="weathertime-div">
+
+					</div>
+					<div class="row">
+						<div class="col-xs-12" id="weatherChart"></div>
+					</div>
+					<div class="row cloud-div">
+					</div>
+				</div>
+			</div>
+			<div class="row weatherdetail-div">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="inline-div infoimg-div">
+								<div id="zwxzs-div" class="zs-div"></div>
+								紫外线指数
+							</div>
+							<div class="inline-div info-div">
+								<div class="simpleinfo-div" id="zwxzs-simpleinfo">
+								</div>
+								<div class="detailinfo-div" id="zwxzs-detailinfo">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="inline-div infoimg-div">
+								<div id="gmzs-div" class="zs-div"></div>
+								感冒指数
+							</div>
+							<div class="inline-div info-div">
+								<div class="simpleinfo-div" id="gmzs-simpleinfo">
+								</div>
+								<div class="detailinfo-div" id="gmzs-detailinfo">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="inline-div infoimg-div">
+								<div id="cyzs-div" class="zs-div"></div>
+								穿衣指数
+							</div>
+							<div class="inline-div info-div">
+								<div class="simpleinfo-div" id="cyzs-simpleinfo">
+								</div>
+								<div class="detailinfo-div" id="cyzs-detailinfo">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="inline-div infoimg-div">
+								<div id="xczs-div" class="zs-div"></div>
+								洗车指数
+							</div>
+							<div class="inline-div info-div">
+								<div class="simpleinfo-div" id="xczs-simpleinfo">
+								</div>
+								<div class="detailinfo-div" id="xczs-detailinfo">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="inline-div infoimg-div">
+								<div id="ydzs-div" class="zs-div"></div>
+								运动指数
+							</div>
+							<div class="inline-div info-div">
+								<div class="simpleinfo-div" id="ydzs-simpleinfo">
+								</div>
+								<div class="detailinfo-div" id="ydzs-detailinfo">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="inline-div infoimg-div">
+								<div id="kqwrzs-div" class="zs-div"></div>
+								空气污染扩散指数
+							</div>
+							<div class="inline-div info-div">
+								<div class="simpleinfo-div" id="kqwrzs-simpleinfo">
+								</div>
+								<div class="detailinfo-div" id="kqwrzs-detailinfo">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>外呼定位</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../js/libs/bootstrap/css/bootstrap-table.css">
+		<link rel="stylesheet" href="../css/unslider.css" />
+		<link rel="stylesheet" href="../css/unslider-dots.css" />
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" href="css/whdw.css">
+		<script src="../js/libs/require.js" type="text/javascript"></script>
+		<script src="../js/env.js" type="text/javascript"></script>
+		<script src="js/whdw.js"></script>
+	</head>
+
+	<body>
+		<div id="firstrow">
+		  <div class="m-table">
+          <table class='common-table' id="wether3HTable">
+            <thead>
+            </thead>
+          </table>
+      </div>
+		</div>
+		<div id="secondrow">
+		  <div class="m-table">
+            <table class='common-table' id="stationTable">
+              <thead>
+                <tr>
+                  <th style="width: 9%;">
+                    站点编号
+                  </th>
+                  <th style="width: 11%;">
+                    站名
+                  </th>
+                  <th style="width: 7%;">
+                    雨量
+                  </th>
+                  <th style="width: 7%;">
+                    气温
+                  </th>
+                  <th style="width: 23%;" colspan="3">
+                    2分钟平均风
+                  </th>
+                  <th style="width: 15%;" colspan="2">
+                    最大风
+                  </th>
+                  <th style="width: 23%;" colspan="3">
+                    极大风
+                  </th>
+                </tr>
+
+                <tr>
+                  <th data-field="station_Id_C" data-halign="center" data-align="center">
+区站号<br>&nbsp
+                  </th>
+                  <th data-field="station_Name" data-halign="center" data-align="center">
+        区站名 <br>    
+                    （全称）
+                  </th>
+                  <th data-field="PRE" data-halign="center" data-align="center" data-formatter='formatterColumnPREFun'>
+             降雨量<br> 
+                    （mm）
+                  </th>
+                  <th data-field="TEM" data-halign="center" data-align="center" data-formatter='formatterColumnTEMFun'>
+        温度<br>            
+                    （℃）
+                  </th>
+                  <th data-field="WIN_S_Avg_2mi" data-halign="center" data-align="center" data-formatter='formatterColumnWINFun'>
+                    风速<br> （m/s）
+                  </th>
+                  <th data-field="WIN_D_Avg_2mi" data-halign="center" data-align="center">
+                    风向<br>&nbsp
+                  </th>
+                  <th data-field="WIN_D_Avg_2mi_S" data-halign="center" data-align="center">
+                    风向概述<br>&nbsp
+                  </th>
+                  <th data-field="WIN_S_Max" data-halign="center" data-align="center">
+                    风速<br> （m/s）
+                  </th>
+                  <th data-field="WIN_D_S_Max" data-halign="center" data-align="center">
+                    风向<br>&nbsp
+                  </th>
+                  <th data-field="WIN_S_Inst_Max" data-halign="center" data-align="center">
+                    风速<br> （m/s）
+                  </th>
+                  <th data-field="WIN_D_INST_Max" data-halign="center" data-align="center">
+                    风向<br>&nbsp
+                  </th>
+                  <th data-field="WIN_D_INST_Max_S" data-halign="center" data-align="center">
+                    风向概述<br>&nbsp
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+    </div>
+    <div id="thirdrow">
+      <div class="m-table">
+          <table class='common-table' id="qyTable">
+            <thead>
+            </thead>
+          </table>
+      </div>
+    </div>
+	</body>
+
+</html>
